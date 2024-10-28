@@ -1,0 +1,119 @@
+/* Estilos para el mapa ocupando toda la pantalla */
+#map {
+    height: 100vh;  /* Ocupa toda la altura de la pantalla */
+    width: 100vw;   /* Ocupa todo el ancho de la pantalla */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Estilos opcionales para personalizar el popup */
+.leaflet-popup-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+ color: rgb(169, 26, 26);
+}
+
+.leaflet-marker-label {
+    background: none !important; /* Sin fondo */
+    border: none !important; /* Sin borde */
+    color: black; /* Letras en negro */
+    font-weight: bold;
+}
+#contador {
+    position: absolute;
+    bottom: 10px; /* Colocar el contador en la parte inferior izquierda */
+    left: 10px;
+    background: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente */
+    padding: 10px;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    z-index: 1000; /* Asegurar que el contador esté sobre el mapa */
+    font-weight: bold;
+}
+
+#buscador {
+    position: absolute;
+    top: 10px;
+    left: 50px;
+    z-index: 1000;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.2);
+}
+
+#codigoComercio {
+    padding: 5px;
+    margin-right: 5px;
+    width: 200px;
+}
+
+/* Style the main routing container */
+.leaflet-routing-container.leaflet-bar {
+    background-color: #f9f9f9; /* Light gray background */
+    padding: 15px;
+    max-width: 320px;
+    max-height: 400px;
+    overflow-y: auto;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+/* Style for route alternative details */
+.leaflet-routing-alt {
+    border-top: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.leaflet-routing-alt h2 {
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.leaflet-routing-alt h3 {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Style the table containing the instructions */
+.leaflet-routing-container table {
+    width: 100%;
+}
+
+/* Style each row in the route instruction */
+.leaflet-routing-container table tr {
+    background-color: #e0f7fa; /* Light blue for instructions */
+    color: #00796b; /* Greenish-blue for text */
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+
+.leaflet-routing-instruction-text {
+    color: #333;
+    font-weight: 500;
+}
+
+/* Specific styles for each type of direction */
+.leaflet-routing-icon-bear-right {
+    color: #388e3c; /* Dark green for slight right */
+}
+
+.leaflet-routing-icon-bear-left {
+    color: #d32f2f; /* Dark red for slight left */
+}
+
+.leaflet-routing-icon-arrive {
+    color: #1e88e5; /* Blue for arrival */
+}
+
+
+
+
