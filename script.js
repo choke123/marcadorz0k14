@@ -70900,6 +70900,60 @@ function trazarRuta(destino) {
     });
 }
 
+// Function to add the toggle button
+function addToggleButton() {
+    const instructionsContainer = document.querySelector('.leaflet-routing-container.leaflet-bar');
+
+    if (instructionsContainer && !instructionsContainer.querySelector('.toggle-button')) {
+        // Create the toggle button
+        const toggleButton = document.createElement('button');
+        toggleButton.textContent = 'ocultar';
+        toggleButton.className = 'toggle-button';
+
+        // Style the button
+        toggleButton.style.margin = '10px';
+        toggleButton.style.padding = '6px 12px';
+        toggleButton.style.backgroundColor = '#00796b';
+        toggleButton.style.color = 'white';
+        toggleButton.style.border = 'none';
+        toggleButton.style.borderRadius = '5px';
+        toggleButton.style.cursor = 'pointer';
+
+        // Insert the button at the top of the instructions container
+        instructionsContainer.insertBefore(toggleButton, instructionsContainer.firstChild);
+
+        // Toggle button functionality
+        toggleButton.addEventListener('click', function() {
+            const instructionsContent = instructionsContainer.querySelector('.leaflet-routing-alternatives-container');
+            
+            // Toggle the visibility of the route instructions
+            if (instructionsContent.style.display === 'none') {
+                instructionsContent.style.display = 'block';
+                toggleButton.textContent = 'ocultar';
+            } else {
+                instructionsContent.style.display = 'none';
+                toggleButton.textContent = 'mostrar';
+            }
+        });
+    }
+}
+
+// MutationObserver to watch for the container's addition to the DOM
+const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+        if (mutation.addedNodes.length > 0) {
+            mutation.addedNodes.forEach(node => {
+                if (node.classList && node.classList.contains('leaflet-routing-container')) {
+                    addToggleButton();
+                }
+            });
+        }
+    });
+});
+
+// Start observing the document body for changes
+observer.observe(document.body, { childList: true, subtree: true });
+
 
 // Mostrar la ubicación del usuario en tiempo real con un círculo de precisión
 function actualizarUbicacionUsuario() {
@@ -71020,3 +71074,4 @@ actualizarUbicacionUsuario();
         alert("Comercio no encontrado");
     }
 }
+
